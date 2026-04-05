@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Habit Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initHabitsPage()">
+
+<nav>
+  <h1>Habit Flow</h1>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="journal.html">Journal</a>
+    <a href="habits.html">Habits</a>
+    <a href="analytics.html">Analytics</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <h2>➕ Add Habit</h2>
+  <input id="habitInput" placeholder="Enter habit">
+  <button onclick="addHabit()">Add Habit</button>
+
+  <h2>📅 Add Day</h2>
+  <input type="date" id="dateInput">
+  <button onclick="addRow()">Add Day</button>
+  
+  <h2>Habit checklist</h2>
+  <table>
+    <thead>
+      <tr id="headerRow">
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+/* 🔥 THIS FIXES YOUR ISSUE WITHOUT TOUCHING app.js */
+function initHabitsPage() {
+  if (typeof renderHabits === "function") renderHabits();
+  if (typeof renderTable === "function") renderTable();
+}
+</script>
+
+<script>
+document.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.style.transform = "scale(0.95)";
+    setTimeout(() => {
+      btn.style.transform = "scale(1)";
+    }, 100);
+  });
+});
+</script>
+
+</body>
+</html>
