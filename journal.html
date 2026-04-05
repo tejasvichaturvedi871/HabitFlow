@@ -1,9 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Journal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal - Habit Flow</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* PAGE SPECIFIC FIX */
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .journal-input {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .journal-input input {
+      flex: 1;
+    }
+
+    .journal-input button {
+      white-space: nowrap;
+    }
+
+    ul {
+      margin-top: 20px;
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: #1a1d35;
+      padding: 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    /* MOBILE FIX */
+    @media(max-width:768px){
+
+      .container {
+        padding: 15px;
+      }
+
+      .journal-input {
+        flex-direction: column;
+      }
+
+      .journal-input input,
+      .journal-input button {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+    }
+  </style>
+
 </head>
+
 <body>
 
 <nav>
@@ -17,14 +82,20 @@
 </nav>
 
 <div class="container">
+
   <h2>Daily Journal</h2>
 
-  <input type="text" id="journalInput" placeholder="What did you do today?">
-  <button onclick="addJournal()">Add</button>
+  <div class="journal-input">
+    <input type="text" id="journalInput" placeholder="What did you do today?">
+    <button onclick="addJournal()">Add</button>
+  </div>
 
   <ul id="journalList"></ul>
+
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
+ 
