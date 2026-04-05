@@ -6,12 +6,16 @@
 </head>
 <body>
 
-<nav>
-  <h1>Journal</h1>
-  <p href="index.html">Home</a>
-  <a href="habits.html">Habits</a>
-    <a href="analytics.html">Analytics</a>
-</nav>
+<div class="container">
+  <h2>Daily Journal</h2>
+
+  <div class="journal-input">
+    <input type="text" id="journalInput" placeholder="What did you do today?">
+    <button onclick="addJournal()">Add</button>
+  </div>
+
+  <ul id="journalList"></ul>
+</div>
 
 <div class="container">
   <h2>Daily Journal</h2>
