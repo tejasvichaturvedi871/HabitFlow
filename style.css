@@ -735,3 +735,15 @@ body {
   }
 
 }
+/* FORCE BUTTON FIX */
+.hero-buttons {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.hero-buttons a {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+}
