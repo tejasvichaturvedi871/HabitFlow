@@ -781,3 +781,61 @@ body {
   }
 
 }
+/* ===== GLOBAL MOBILE FIX (ALL PAGES) ===== */
+@media (max-width: 768px) {
+
+  body {
+    font-size: 16px !important;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 26px !important;
+  }
+
+  h2 {
+    font-size: 22px !important;
+  }
+
+  h3 {
+    font-size: 18px !important;
+  }
+
+  p {
+    font-size: 15px !important;
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: 16px !important;
+    padding: 12px;
+  }
+
+  button {
+    font-size: 16px !important;
+    padding: 12px;
+  }
+
+  /* JOURNAL */
+  .journal-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* HABITS TABLE */
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  table {
+    font-size: 14px;
+    min-width: 600px;
+  }
+
+  /* ANALYTICS */
+  canvas {
+    max-width: 100%;
+  }
+
+}
