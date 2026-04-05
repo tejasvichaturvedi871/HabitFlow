@@ -648,3 +648,90 @@ body {
   }
 
 }
+/* ===== FORCE MOBILE FIX (FINAL) ===== */
+@media (max-width: 768px) {
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-size: 16px !important;
+    padding: 10px !important;
+  }
+
+  /* NAV */
+  nav {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px;
+  }
+
+  nav div {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 30px 10px !important;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 28px !important;
+    line-height: 1.2;
+  }
+
+  /* 🔥 FIX BUTTONS (MAIN ISSUE) */
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .hero-buttons a {
+    width: 100% !important;
+    text-align: center;
+  }
+
+  /* INPUT + BUTTON */
+  input, button {
+    width: 100% !important;
+    font-size: 16px !important;
+  }
+
+  /* JOURNAL */
+  .journal-input {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px;
+  }
+
+  /* TABLE */
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 600px;
+  }
+
+  /* CARDS */
+  .features {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* QUOTE */
+  .quote-box {
+    width: 100% !important;
+  }
+
+  .quote-text {
+    font-size: 14px !important;
+    text-align: center;
+  }
+
+}
