@@ -2,15 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Habit Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habit Tracker - Habit Flow</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* PAGE STRUCTURE */
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .section {
+      margin-bottom: 25px;
+    }
+
+    .section input,
+    .section button {
+      margin-top: 10px;
+    }
+
+    /* TABLE WRAPPER (IMPORTANT) */
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 500px;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+
+    th {
+      background: #60a5fa;
+      color: black;
+    }
+
+    /* MOBILE FIX */
+    @media(max-width:768px){
+
+      .container {
+        padding: 15px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      input, button {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px;
+      }
+
+      .section {
+        display: flex;
+        flex-direction: column;
+      }
+
+    }
+  </style>
+
 </head>
 
-<body onload="initHabitsPage()">
+<body>
 
 <nav>
   <h1>Habit Flow</h1>
-  <div>
+  <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="journal.html">Journal</a>
     <a href="habits.html">Habits</a>
@@ -20,45 +88,62 @@
 
 <div class="container">
 
-  <h2>➕ Add Habit</h2>
-  <input id="habitInput" placeholder="Enter habit">
-  <button onclick="addHabit()">Add Habit</button>
+  <!-- ADD HABIT -->
+  <div class="section">
+    <h2>➕ Add Habit</h2>
+    <input id="habitInput" placeholder="Enter habit">
+    <button onclick="addHabit()">Add Habit</button>
+  </div>
 
-  <h2>📅 Add Day</h2>
-  <input type="date" id="dateInput">
-  <button onclick="addRow()">Add Day</button>
-  
-  <h2>Habit checklist</h2>
-  <table>
-    <thead>
-      <tr id="headerRow">
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody id="tableBody"></tbody>
-  </table>
+  <!-- ADD DAY -->
+  <div class="section">
+    <h2>📅 Add Day</h2>
+    <input type="date" id="dateInput">
+    <button onclick="addRow()">Add Day</button>
+  </div>
+
+  <!-- TABLE -->
+  <div class="section">
+    <h2>Habit Checklist</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr id="headerRow">
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
 </div>
 
 <script src="script.js"></script>
 
 <script>
-/* 🔥 THIS FIXES YOUR ISSUE WITHOUT TOUCHING app.js */
 function initHabitsPage() {
   if (typeof renderHabits === "function") renderHabits();
   if (typeof renderTable === "function") renderTable();
 }
+
+document.addEventListener("DOMContentLoaded", initHabitsPage);
 </script>
 
 <script>
-document.querySelectorAll("button").forEach(btn => {
-  btn.addEventListener("click", () => {
-    btn.style.transform = "scale(0.95)";
-    setTimeout(() => {
-      btn.style.transform = "scale(1)";
-    }, 100);
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.style.transform = "scale(0.95)";
+      setTimeout(() => {
+        btn.style.transform = "scale(1)";
+      }, 100);
+    });
   });
 });
 </script>
 
 </body>
 </html>
+   
