@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
 * {
   margin: 0;
   padding: 0;
@@ -19,72 +20,39 @@
   --text: #e8e6f0;
   --muted: #7a7a9a;
   --accent: #4ade80;
-  --blue: #60a5fa;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Plus Jakarta Sans', sans-serif;
-  overflow-x: hidden;
 }
 
 /* NAV */
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 20px 40px;
+  padding: 20px;
+}
+
+nav div {
+  display: flex;
+  gap: 15px;
 }
 
 nav a {
   color: var(--muted);
-  margin-left: 20px;
   text-decoration: none;
-}
-
-nav a:hover {
-  color: var(--accent);
 }
 
 /* HERO */
 .hero {
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   text-align: center;
-  position: relative;
+  padding: 60px 20px;
 }
 
-/* ORBS */
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.2;
-}
-
-.orb1 {
-  width: 400px;
-  height: 400px;
-  background: var(--blue);
-  top: -100px;
-  right: -100px;
-}
-
-.orb2 {
-  width: 300px;
-  height: 300px;
-  background: var(--accent);
-  bottom: -100px;
-  left: -100px;
-}
-
-/* TITLE */
 .hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 70px;
-  font-weight: 900;
+  font-size: 60px;
 }
 
 .hero span {
@@ -92,22 +60,23 @@ nav a:hover {
 }
 
 .hero p {
-  margin-top: 20px;
+  margin-top: 15px;
   color: var(--muted);
 }
 
 /* BUTTONS */
 .hero-buttons {
-  margin-top: 30px;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .btn {
-  padding: 12px 25px;
-  margin: 10px;
+  padding: 12px 20px;
   border-radius: 10px;
   text-decoration: none;
   font-weight: bold;
-  transition: 0.3s;
 }
 
 .primary {
@@ -120,53 +89,49 @@ nav a:hover {
   color: white;
 }
 
-.btn:hover {
-  transform: translateY(-3px);
-}
-
-/* FEATURES */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 20px;
-  padding: 40px;
-}
-
-.card {
-  background: #1a1d35;
-  padding: 20px;
-  border-radius: 15px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
 /* QUOTE */
-.quote {
+.quote-box {
+  margin: 40px auto;
   text-align: center;
-  padding: 40px;
-  color: var(--muted);
-  font-style: italic;
 }
 
-/* MOBILE */
+/* MOBILE FIX */
 @media(max-width:768px){
+
   .hero h1 {
-    font-size: 40px;
+    font-size: 32px;
   }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons a {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
 }
+
 </style>
 
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
   <h2>Habit Flow</h2>
-
   <div>
     <a href="index.html">Home</a>
     <a href="journal.html">Journal</a>
@@ -175,80 +140,35 @@ nav a:hover {
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
-
   <h1>Build <span>Better</span><br>Habits Daily</h1>
   <p>Your all-in-one system to track, grow, and improve.</p>
 
   <div class="hero-buttons">
-  <a href="habits.html" class="btn primary">Start Tracking</a>
-  <a href="journal.html" class="btn secondary">Write Journal</a>
-  <a href="analytics.html" class="btn secondary">View Growth</a>
+    <a href="habits.html" class="btn primary">Start Tracking</a>
+    <a href="journal.html" class="btn secondary">Write Journal</a>
+    <a href="analytics.html" class="btn secondary">View Growth</a>
+  </div>
+</section>
+
+<div class="quote-box">
+  <p id="quote"></p>
 </div>
 
-</section>
-<div class="quote-wrapper">
-  <div class="quote-box">
-    <h1 class="quote-text" id="quote"></h1>
-  </div>
-</div>
 <script>
 const quotes = [
   "Small daily habits create big life changes.",
   "Consistency beats motivation every time.",
-  "Discipline is choosing what you want most.",
-  "Your future is built by what you do today.",
-  "Success starts with daily habits."
+  "Discipline is choosing what you want most."
 ];
 
 let i = 0;
-let j = 0;
-let currentQuote = "";
-let isDeleting = false;
 
-function typeEffect() {
-  const element = document.getElementById("quote");
-
-  if (!element) return;
-
-  currentQuote = quotes[i];
-
-  if (!isDeleting) {
-    element.textContent = currentQuote.substring(0, j++);
-  } else {
-    element.textContent = currentQuote.substring(0, j--);
-  }
-
-  if (!isDeleting && j === currentQuote.length) {
-    isDeleting = true;
-    setTimeout(typeEffect, 1500); // pause at full text
-    return;
-  }
-
-  if (isDeleting && j === 0) {
-    isDeleting = false;
-    i = (i + 1) % quotes.length;
-  }
-
-  setTimeout(typeEffect, isDeleting ? 40 : 80);
-}
-
-typeEffect();
+setInterval(() => {
+  document.getElementById("quote").textContent = quotes[i];
+  i = (i + 1) % quotes.length;
+}, 2000);
 </script>
-
-<!-- FEATURES -->
-<section class="features">
-  <a href="journal.html" class="card">📘 Daily Journal</a>
-  <a href="habits.html" class="card">✅ Habit Tracker</a>
-  <a href="analytics.html" class="card">📊 Analytics</a>
-</section>
-
-
- 
 
 </body>
 </html>
