@@ -747,3 +747,37 @@ body {
   width: 100% !important;
   text-align: center !important;
 }
+@media(max-width:768px){
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-buttons a {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+}
